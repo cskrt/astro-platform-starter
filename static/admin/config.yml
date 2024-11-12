@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main # Or "master" if that's your repository's main branch
+
+media_folder: "public/uploads" # Folder for uploaded images
+public_folder: "/uploads" # Path for accessing uploaded images
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog" # Folder for blog posts
+    create: true # Allow creating new blog posts
+    extension: "md" # Markdown files
+    slug: "{{slug}}" # URL format for new entries
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
